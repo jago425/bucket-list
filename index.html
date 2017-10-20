@@ -13,8 +13,11 @@
     </head>
     <body class="container-fluid">
       <!-- header -->
-      <h1>Bucket List</h1>
+      <header>
+        <h1>Bucket List</h1>
+      </header>
       <br>
+      <!--placeholder for nav bar -->
       <!-- Status Message -->
       <div id='status-message' class='status'></div>
       <br>
@@ -39,13 +42,55 @@
         </form>
 
       <!-- List -->
-      <section class="game-and-logout-and-reset">
+      <form class="list">
+        <div class="container">
+          <table id="bucketList" class="table order-list">
+          <thead>
+            <tr>
+              <td>Done</td>
+              <td>Bucket Item</td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-sm-4">
+                <input type="checkbox" name="listItem" class="form-control" />
+              </td>
+              <td class="col-sm-4">
+                <input type="text" name="listItem"  class="form-control"/>
+              </td>
+              <td class="col-sm-2"><a class="editRow"></a>
+              </td>
+              <td class="col-sm-2"><a class="deleteRow"></a>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5" style="text-align: left;">
+                <input type="button" class="btn btn-lg btn-block " id="addrow" value="Add Row"/>
+              </td>
+            </tr>
+            <tr>
+            </tr>
+          </tfoot>
+          </table>
+
+        </div>
+      </form>
+
+
+      <tr>
+
+
         <br>
       <!-- Logout -->
+    <section class="logout">
       <form id='sign-out' class='logout'>
         <input type="submit" name="submit" class="btn btn-primary" value="Logout">
       </form>
-      </section>
+    </section>
       <br>
       <!-- change password -->
       <section>
