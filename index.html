@@ -42,7 +42,7 @@
         </form>
 
       <!-- List -->
-      <form class="list">
+      <form class="list" id="list-form">
         <div class="container">
           <table id="bucketList" class="table order-list">
           <thead>
@@ -54,36 +54,38 @@
           </thead>
           <tbody>
             <tr>
-              <td class="col-sm-4">
-                <input type="checkbox" name="listItem" class="form-control" />
+              <td class="col-sm-2">
+                <input type="checkbox" name="list-item[done]" class="form-control done" />
               </td>
-              <td class="col-sm-4">
-                <input type="text" name="listItem"  class="form-control"/>
+              <td class="col-sm-8">
+                <input type="text" id="item_description" name="list_item[item_description]"  class="form-control description"/>
               </td>
-              <td class="col-sm-2"><a class="editRow"></a>
+              <!-- <td class="col-xs-3"><a class="editRow"></a>
+                <input type="button" class="ibtnEd btn btn-md btn-success"  value="Edit">
               </td>
-              <td class="col-sm-2"><a class="deleteRow"></a>
-              </td>
+              <td class="col-xs-3"><a class="deleteRow"></a>
+                <input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete">
+              </td> -->
             </tr>
           </tbody>
           <tfoot>
             <tr>
               <td colspan="5" style="text-align: left;">
-                <input type="button" class="btn btn-lg btn-block " id="addrow" value="Add Row"/>
+                <input type="submit" class="btn btn-lg btn-block" id="addrow" value="Drop in the Bucket!"/>
               </td>
             </tr>
             <tr>
             </tr>
           </tfoot>
+          <!--empty table for handlebars  -->
           </table>
-
         </div>
       </form>
 
-
-      <tr>
-
-
+        <div class="container">
+          <table id="bucket-list-handlebars" class="table order-list">
+          </table>
+        </div>
         <br>
       <!-- Logout -->
     <section class="logout">

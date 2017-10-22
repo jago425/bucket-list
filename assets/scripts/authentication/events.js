@@ -21,6 +21,7 @@ const onSignIn = function (event) {
   const data = getFormFields(event.target)
   api.signIn(data)
     .then(ui.signInSuccess)
+    // .then and link to (require bucket_listevents) and invoke the index method
     .catch(ui.signInFailure)
 }
 
