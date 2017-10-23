@@ -22,7 +22,18 @@ const getList = function () {
     }
   })
 }
+
+const showListItem = function (listId) {
+  return $.ajax({
+    url: config.apiOrigin + '/list_items/' + listId,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 module.exports = {
   createNewItem,
-  getList
+  getList,
+  showListItem
 }

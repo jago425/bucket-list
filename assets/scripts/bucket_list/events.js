@@ -10,12 +10,6 @@ const newListItem = function (event) {
     .catch(ui.createBucketListFailure)
 }
 
-// const openEditModal = function () {
-// $('.edit-row').on('function') {
-// }
-//
-// }
-
 const listHandlers = function () {
   $('.list').on('submit', newListItem)
 }

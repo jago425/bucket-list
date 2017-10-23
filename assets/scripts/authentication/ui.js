@@ -30,19 +30,38 @@ const signInFailure = function () {
   $('#status-message').text('Login Failed')
   $('.nppi').val('')
 }
-
+// function to display my index request
 const onGetListSuccess = function (data) {
-  console.log(data)
   $('#bucket-list-handlebars').empty()
   const showListItemsHTML = handlebars({list_items: data.list_items})
   $('#bucket-list-handlebars').html(showListItemsHTML)
-  $('.edit-row').on('submit', console.log('click worked'))
+  $('.edit-row').on('submit')
+  $('.edit-row').on('click', onEditModal)
 }
 
 const onGetListFailure = function () {
-
+  $('#status-message').text('failed to load your list')
+}
+// function to display edit modal and display show
+const onEditModal = function (event) {
+  // $('#editItemModal').modal('show')
+  api.showListItem(event.target.id)
+    .then(listShowSuccess)
+    .catch(listShowFailure)
 }
 
+const listShowSuccess = function (data) {
+  console.log(data)
+  console.log(data.list_item.done)
+  console.log(data.list_item.item_description)
+  $('#editItemModal').modal('show')
+  $('#modal-edit-done').prop('checked', data.list_item.done)
+  $('#modal-item-description').val(data.list_item.item_description)
+}
+
+const listShowFailure = function (data) {
+  $('#status-message').text('failed to load your selection')
+}
 const changePasswordSuccess = function () {
   $('#status-message').text('Changed password successfully')
   $('.nppi').val('')
@@ -77,6 +96,9 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   onGetListSuccess,
-  onGetListFailure
+  onGetListFailure,
+  onEditModal,
+  listShowSuccess,
+  listShowFailure
 
 }
