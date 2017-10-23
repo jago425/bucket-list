@@ -32,8 +32,33 @@ const showListItem = function (listId) {
     }
   })
 }
+
+const updateListItem = function (listId, data) {
+  return $.ajax({
+    url: config.apiOrigin + '/list_items/' + listId,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const deleteListItem = function (listId) {
+  console.log(listId)
+  // return $.ajax({
+  //   url: config.apiOrigin + '/list_items/' + listId,
+  //   method: 'DELETE',
+  //   headers: {
+  //     Authorization: 'Token token=' + store.user.token
+  //   }
+  // })
+}
+
 module.exports = {
   createNewItem,
   getList,
-  showListItem
+  showListItem,
+  updateListItem,
+  deleteListItem
 }
