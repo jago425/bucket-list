@@ -31,8 +31,9 @@ const onGetListSuccess = function (data) {
   $('#bucket-list-handlebars').empty()
   const showListItemsHTML = handlebars({list_items: data.list_items})
   $('#bucket-list-handlebars').html(showListItemsHTML)
-  $('.edit-row').on('submit')
+  // $('.edit-row').on('submit')
   $('.edit-row').on('click', listUi.onEditModal)
+  $('.delete-item').on('click', listUi.onDeleteClickButton)
 }
 
 const onGetListFailure = function () {

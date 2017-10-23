@@ -34,6 +34,7 @@ const showListItem = function (listId) {
 }
 
 const updateListItem = function (listId, data) {
+  console.log('ajax')
   return $.ajax({
     url: config.apiOrigin + '/list_items/' + listId,
     method: 'PATCH',
@@ -46,13 +47,13 @@ const updateListItem = function (listId, data) {
 
 const deleteListItem = function (listId) {
   console.log(listId)
-  // return $.ajax({
-  //   url: config.apiOrigin + '/list_items/' + listId,
-  //   method: 'DELETE',
-  //   headers: {
-  //     Authorization: 'Token token=' + store.user.token
-  //   }
-  // })
+  return $.ajax({
+    url: config.apiOrigin + '/list_items/' + listId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
 }
 
 module.exports = {

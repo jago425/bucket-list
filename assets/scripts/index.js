@@ -4,6 +4,7 @@ const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const authEvents = require('./authentication/events')
 const listEvents = require('./bucket_list/events')
+// const listUi = require('./bucket_list/list_ui')
 
 $(() => {
   setAPIOrigin(location, config)

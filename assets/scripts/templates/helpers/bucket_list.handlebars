@@ -3,13 +3,16 @@
 
 
 <tr data-id="{{list_item.id}}">
-    <td type="checkbox" class="col-sm-2"> Done:{{list_item.done}}</td>
+    <td class="col-sm-2"> Done:{{list_item.done}}</td>
     <td class="col-sm-8">Bucket Item: {{list_item.item_description}}</td>
     <td class="col-xs-3"><button type="button" data-toggle="modal" data-target="#edit-modal" id="{{list_item.id}}" class="btn btn-primary edit-row">Edit</button>
     </td>
-      <td class="col-xs-3"><button type="button" class="delete-item" id="{{list_item.id}}">Delete</button>
+      <td class="col-xs-3"><button type="button" class="delete-item ibtnDel btn btn-md btn-danger" id="{{list_item.id}}">Delete</button>
       </td>
-      <!-- edit modal -->
+      <!-- <td class="col-xs-3"><a class="deleteRow"></a>
+        <input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete">
+      </td> -->
+      <!-- edit modal --> -->
   <!-- <form data-id="{{list_item.id}}" id="update-list-modal">
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
