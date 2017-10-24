@@ -6,6 +6,7 @@ const onPageLoad = function () {
   // $('#new-game').hide() - need to hide lists
   $('#sign-out').hide()
   $('#change-password').hide()
+  $('#list-form').hide()
 }
 
 const onSignUp = function (event) {
@@ -21,7 +22,6 @@ const onSignIn = function (event) {
   const data = getFormFields(event.target)
   api.signIn(data)
     .then(ui.signInSuccess)
-    // .then and link to (require bucket_listevents) and invoke the index method
     .catch(ui.signInFailure)
 }
 
@@ -49,6 +49,4 @@ const addHandlers = function () {
 module.exports = {
   addHandlers,
   onPageLoad
-  // signInHandlers,
-  // changePasswordHandlers
 }

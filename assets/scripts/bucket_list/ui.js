@@ -7,6 +7,7 @@ const createBucketListSuccess = function () {
   api.getList()
     .then(authUi.onGetListSuccess)
     .catch(authUi.onGetListFailure)
+  $('#status-message').text('')
 }
 
 const createBucketListFailure = function () {

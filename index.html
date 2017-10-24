@@ -49,25 +49,15 @@
       <table id="bucketList" class="table order-list">
         <thead>
           <tr>
-            <td>Done</td>
             <td>Bucket Item</td>
             <td></td>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="col-sm-4">
-              <input type="radio" name="list_item[done]" class="form-control done" value="Not Yet">Not Yet</input><input type="radio" name="list_item[done]" class="form-control done" value="Yes">Yes</input>
-            </td>
-            <td class="col-sm-8">
+            <td class="col-sm-18">
               <input type="text" id="item_description" name="list_item[item_description]" class="form-control description" />
             </td>
-            <!-- <td class="col-xs-3"><a class="editRow"></a>
-                <input type="button" class="ibtnEd btn btn-md btn-success"  value="Edit">
-              </td>
-              <td class="col-xs-3"><a class="deleteRow"></a>
-                <input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete">
-              </td> -->
           </tr>
         </tbody>
         <tfoot>
@@ -120,7 +110,6 @@
           <form id="edit-modal">
             <div class="modal-message"></div>
             <input type="hidden" id="item-id-from-edit-modal" name="list_item[id]" value=" ">
-            <input type="checkbox" id="modal-edit-done" name="list_item[done]" class="edit-done">
             <input id="modal-item-description" name="list_item[item_description]" type="text" placeholder="description">
 
             <div class="modal-footer">

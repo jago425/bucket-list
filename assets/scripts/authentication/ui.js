@@ -2,7 +2,6 @@
 const store = require('../store')
 const api = require('../bucket_list/api')
 const handlebars = require('../templates/helpers/bucket_list.handlebars')
-// const listUi = require('../bucket_list/list_ui')
 
 const signUpSuccess = function (data) {
   $('#status-message').text('You have successfully signed up!')
@@ -22,6 +21,8 @@ const signInSuccess = function (response, event) {
   $('#sign-out').show()
   $('#change-password').show()
   $('.nppi').val('')
+  $('#status-message').text('')
+  $('#list-form').show()
   api.getList()
     .then(onGetListSuccess)
     .catch(onGetListFailure)
@@ -31,9 +32,6 @@ const onGetListSuccess = function (data) {
   $('#bucket-list-handlebars').empty()
   const showListItemsHTML = handlebars({list_items: data.list_items})
   $('#bucket-list-handlebars').html(showListItemsHTML)
-  // $('.edit-row').on('submit')
-  // $('.edit-button').on('click', listUi.onLaunchEditModal)
-  // $('.delete-item').on('click', listUi.onDeleteClickButton)
 }
 
 const onGetListFailure = function () {

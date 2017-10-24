@@ -2,82 +2,60 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const handlebars = require('../templates/helpers/bucket_list.handlebars')
-let id = ''
+const authEvents = require('../authentication/ui')
 
 // function launch edit modal from edit button - kicks off listShowSuccess - triggered by onGetListSuccess (in auth/ui)
 const onLaunchEditModal = function (event) {
   event.preventDefault()
-  console.log('onLaunchEditModal', event.target)
+  // console.log('onLaunchEditModal', event.target)
   api.showListItem(event.target.dataset.id) // dataset = data-id in handlebars
     .then(listShowSuccess)
     .catch(listShowFailure)
 }
 // function to display a list item in the modal and then to turn off listener from last time the event was triggered so new submit can be applied.
 const listShowSuccess = function (data) {
-  console.log('listShowSuccess', data)
-  // $('#editItemModal').modal('toggle')
-  // $('#modal-edit-done').prop('checked', data.list_item.done)
+  // console.log('listShowSuccess', data)
   $('#modal-item-description').val(data.list_item.item_description)
   $('#item-id-from-edit-modal').attr('value', data.list_item.id)
   $('#edit-modal').off('submit')
-  console.log('in the listShowSuccess')
-  // $('#edit-modal').on('submit', onSubmitUpdateListItem)
-  // id = data.list_item.id
-  // api.getList()
-  //   .then(indexListSuccess)
-  //   .catch(indexListFailure)
+  // console.log('in the listShowSuccess')
 }
 const listShowFailure = function (data) {
   $('#status-message').text('failed to load your selection')
 }
 
 // function to display all the list items (i.e refresh list)
-const indexListSuccess = function (data) {
-  $('#bucket-list-handlebars').empty()
-  const showListItemsHTML = handlebars({list_items: data.list_items})
-  $('#bucket-list-handlebars').html(showListItemsHTML)
-}
-
-const indexListFailure = function () {
-  $('#status-message').text('failed to load your list')
-}
-
 const onSubmitUpdateListItem = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  id = data.list_item.id
-  console.log('onSubmiteUpdateListItem', id, data)
+  const id = data.list_item.id
+  // console.log('onSubmitUpdateListItem', id, data)
   api.updateListItem(id, data)
     .then(updateListSuccess)
     .catch(updateListFailure)
 }
 // function to close modal and refresh the list items when UPDATE is successful
 const updateListSuccess = function (data) {
-  console.log('are we making progress?')
+  // console.log('are we making progress?')
   // debugger
   $('#editItemModal').modal('toggle')
   api.getList()
-    .then(indexListSuccess)
-    .catch(indexListFailure)
-  // $('#bucket-list-handlebars').empty()
-  // const showListItemsHTML = handlebars({list_items: data.list_items})
-  // $('#bucket-list-handlebars').html(showListItemsHTML)
-  // $('.edit-row').on('submit')
-  // $('.edit-row').on('click', onEditModal)
-  // $('.delete-item').on('click', onDeleteListItem)
+    .then(authEvents.onGetListSuccess)
+    .catch(authEvents.onGetListFailure)
 }
 
 const updateListFailure = function () {
 }
+// function to attach a click handler to the delete button
 const onDeleteClickButton = function (event) {
   event.preventDefault()
-  console.log(event.target.id)
-  onDeleteListItem(event.target.id)
+  // console.log(event.target.dataset.id)
+  onDeleteListItem(event.target.dataset.id)
 }
 
 const onDeleteListItem = function (id) {
   event.preventDefault()
-  console.log(id)
+  // console.log(id)
   api.deleteListItem(id)
     .then(deleteItemSuccess)
     .catch(deleteItemFailure)
@@ -100,12 +78,7 @@ const onGetListAfterDeleteSuccess = function (data) {
 const onGetListAfterDeleteFailure = function () {
   $('#status-message').text('failed to load your list')
 }
-// $('#bucket-list-handlebars').empty()
-// const showListItemsHTML = handlebars({list_items: data.list_items})
-// $('#bucket-list-handlebars').html(showListItemsHTML)
-// $('.edit-row').on('submit')
-// $('.edit-row').on('click', onEditModal)
-// $('#status-message').text('Bucket item deleted successfully!')
+
 const deleteItemFailure = function () {
   $('#status-message').text('Oops, can you try deleting that from your bucket again?')
 }

@@ -34,7 +34,7 @@ const showListItem = function (listId) {
 }
 
 const updateListItem = function (listId, data) {
-  console.log('ajax', listId, data)
+  // console.log('ajax', listId, data)
   return $.ajax({
     url: config.apiOrigin + '/list_items/' + listId,
     method: 'PATCH',
@@ -46,7 +46,7 @@ const updateListItem = function (listId, data) {
 }
 
 const deleteListItem = function (listId) {
-  console.log(listId)
+  // console.log(listId)
   return $.ajax({
     url: config.apiOrigin + '/list_items/' + listId,
     method: 'DELETE',
