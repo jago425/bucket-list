@@ -11,7 +11,7 @@ const createBucketListSuccess = function () {
 }
 
 const createBucketListFailure = function () {
-  $('#status-message').text('please try again')
+  $('#status-message').text('You must enter something to drop in your bucket')
 }
 
 module.exports = {

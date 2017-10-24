@@ -7,6 +7,7 @@ const authEvents = require('../authentication/ui')
 // function launch edit modal from edit button - kicks off listShowSuccess - triggered by onGetListSuccess (in auth/ui)
 const onLaunchEditModal = function (event) {
   event.preventDefault()
+  $('.modal-message').text('')
   // console.log('onLaunchEditModal', event.target)
   api.showListItem(event.target.dataset.id) // dataset = data-id in handlebars
     .then(listShowSuccess)
@@ -39,12 +40,14 @@ const updateListSuccess = function (data) {
   // console.log('are we making progress?')
   // debugger
   $('#editItemModal').modal('toggle')
+  $('#status-message').text('Your bucket item has been updated!')
   api.getList()
     .then(authEvents.onGetListSuccess)
     .catch(authEvents.onGetListFailure)
 }
 
 const updateListFailure = function () {
+  $('.modal-message').text('This field cannot be blank')
 }
 // function to attach a click handler to the delete button
 const onDeleteClickButton = function (event) {

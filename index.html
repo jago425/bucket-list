@@ -28,8 +28,8 @@
   <form id='sign-in' class='auth-form'>
     <fieldset>
       <legend>Please login!</legend>
-      <input type="text" id="login-email" name="credentials[email]" class="nppi" placeholder="username">
-      <input type="password" id="login-password" name="credentials[password]" class="nppi" placeholder="Password">
+      <input required type="text" id="login-email" name="credentials[email]" class="nppi" placeholder="username">
+      <input required type="password" id="login-password" name="credentials[password]" class="nppi" placeholder="Password">
       <input type="submit" name="submit" class="btn btn-primary" value="Login">
     </fieldset>
   </form>
@@ -37,9 +37,9 @@
   <form id='sign-up' class='auth-form'>
     <fieldset>
       <legend>First Time? Sign Up Here!</legend>
-      <input type="text" id="sign-up-email" name="credentials[email]" class="nppi" placeholder="username">
-      <input type="password" id="sign-up-password" name="credentials[password]" class="nppi" placeholder="Password">
-      <input type="password" id="confirm-password" name="credentials[password_confirmation]" class="nppi" placeholder="Confirm Password">
+      <input required type="text" id="sign-up-email" name="credentials[email]" class="nppi" placeholder="username">
+      <input required type="password" id="sign-up-password" name="credentials[password]" class="nppi" placeholder="Password">
+      <input required type="password" id="confirm-password" name="credentials[password_confirmation]" class="nppi" placeholder="Confirm Password">
       <input type="submit" name="submit" class="btn btn-primary" value="Sign up!">
     </fieldset>
   </form>
@@ -57,7 +57,7 @@
         <tbody>
           <tr>
             <td class="col-md-18">
-              <input type="text" id="item_description" name="list_item[item_description]" class="form-control description" />
+              <input required type="text" id="item_description" name="list_item[item_description]" class="form-control description" />
             </td>
           </tr>
         </tbody>
@@ -93,8 +93,8 @@
     <form id='change-password'>
       <fieldset>
         <legend>Change Password</legend>
-        <input type="password" id="change-password-old" name="passwords[old]" class="nppi" placeholder="Old Password">
-        <input type="password" id="change-password-new" name="passwords[new]" class="nppi" placeholder="New Password">
+        <input required type="password" id="change-password-old" name="passwords[old]" class="nppi" placeholder="Old Password">
+        <input required type="password" id="change-password-new" name="passwords[new]" class="nppi" placeholder="New Password">
         <input type="submit" name="submit" class="btn btn-primary" value="Change Password">
       </fieldset>
     </form>
@@ -104,14 +104,14 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="editModalLabel">Edit Bucket List</h5>
+          <h5 class="modal-title" id="editModalLabel">Edit Bucket Item</h5>
 
         </div>
         <div class="modal-body">
           <form id="edit-modal">
             <div class="modal-message"></div>
             <input type="hidden" id="item-id-from-edit-modal" name="list_item[id]" value=" ">
-            <input id="modal-item-description" name="list_item[item_description]" type="text" placeholder="description">
+            <input required id="modal-item-description" name="list_item[item_description]" type="text" placeholder="description">
 
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
