@@ -1,0 +1,22 @@
+
+/*$black: #000;
+$align-content: center;
+$height: 80px;
+$margin: 30px;*/
+
+
+body {
+  background-image: url(https://i.imgur.com/4fZ4erC.jpg?1);
+  background-repeat: no-repeat;
+  background-size: 100% 230%;
+  text-align: center;
+}
+
+.saved-description {
+  background-color: #545656;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 20px;
+  font-weight: bold;
+  text-align:left;
+  align-content: center;
+}
