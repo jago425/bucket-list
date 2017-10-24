@@ -34,7 +34,7 @@ const showListItem = function (listId) {
 }
 
 const updateListItem = function (listId, data) {
-  console.log('ajax')
+  console.log('ajax', listId, data)
   return $.ajax({
     url: config.apiOrigin + '/list_items/' + listId,
     method: 'PATCH',

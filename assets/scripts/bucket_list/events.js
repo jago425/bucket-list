@@ -1,7 +1,7 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
-// const listUi = require('./list_ui')
+const bucketListUi = require('./list_ui')
 
 const newListItem = function (event) {
   event.preventDefault()
@@ -10,7 +10,7 @@ const newListItem = function (event) {
     .then(ui.createBucketListSuccess)
     .catch(ui.createBucketListFailure)
 }
-// const onUpdateList = function (event) {
+// const onSubmitUpdateListItem = function (event) {
 //   event.preventDefault()
 //   console.log('update list')
 //   const data = getFormFields(this)
@@ -27,13 +27,19 @@ const newListItem = function (event) {
 // }
 const listHandlers = function () {
   $('.list').on('submit', newListItem)
-  // $('#edit-modal-save').on('submit', onUpdateList)
+  // click handler to wait for edit button to exist then click handler is added to it
+  $(document).on('click', '.edit-button', bucketListUi.onLaunchEditModal)
+  // click handle to wait until the save changes  button on the edit modal exists
+  $(document).on('submit', '#edit-modal', bucketListUi.onSubmitUpdateListItem)
+  // click handler to wait for delete button to exist, then click handler is added to it
+  $(document).on('click', '.delete-item', bucketListUi.onDeleteClickButton)
+  // $('#edit-modal-save').on('submit', onSubmitUpdateListItem)
   // $('.delete-item').on('submit', onDeleteListItem)
 }
 
 module.exports = {
   newListItem,
   listHandlers
-  // onUpdateList,
+  // onSubmitUpdateListItem,
   // onDeleteListItem
 }

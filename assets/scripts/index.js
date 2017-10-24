@@ -3,7 +3,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const authEvents = require('./authentication/events')
-const listEvents = require('./bucket_list/events')
+const bucketListEvents = require('./bucket_list/events')
 // const listUi = require('./bucket_list/list_ui')
 
 $(() => {
@@ -19,8 +19,9 @@ $(() => {
 })
 
 $(() => {
-  listEvents.listHandlers()
+  bucketListEvents.listHandlers()
 })
+
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 

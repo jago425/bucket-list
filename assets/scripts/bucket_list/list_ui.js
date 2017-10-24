@@ -4,23 +4,28 @@ const api = require('./api')
 const handlebars = require('../templates/helpers/bucket_list.handlebars')
 let id = ''
 
-// function display of a list_item in the edit modal - kicks off listShowSuccess and triggered from updateListSuccess
-const onEditModal = function (event) {
+// function launch edit modal from edit button - kicks off listShowSuccess - triggered by onGetListSuccess (in auth/ui)
+const onLaunchEditModal = function (event) {
   event.preventDefault()
-  api.showListItem(event.target.id)
+  console.log('onLaunchEditModal', event.target)
+  api.showListItem(event.target.dataset.id) // dataset = data-id in handlebars
     .then(listShowSuccess)
     .catch(listShowFailure)
 }
-// function to display a list item in the modal
+// function to display a list item in the modal and then to turn off listener from last time the event was triggered so new submit can be applied.
 const listShowSuccess = function (data) {
-  $('#editItemModal').modal('show')
-  $('#modal-edit-done').prop('checked', data.list_item.done)
+  console.log('listShowSuccess', data)
+  // $('#editItemModal').modal('toggle')
+  // $('#modal-edit-done').prop('checked', data.list_item.done)
   $('#modal-item-description').val(data.list_item.item_description)
-  $('#edit-modal').on('submit', onUpdateList)
-  id = data.list_item.id
-  api.getList()
-    .then(indexListSuccess)
-    .catch(indexListFailure)
+  $('#item-id-from-edit-modal').attr('value', data.list_item.id)
+  $('#edit-modal').off('submit')
+  console.log('in the listShowSuccess')
+  // $('#edit-modal').on('submit', onSubmitUpdateListItem)
+  // id = data.list_item.id
+  // api.getList()
+  //   .then(indexListSuccess)
+  //   .catch(indexListFailure)
 }
 const listShowFailure = function (data) {
   $('#status-message').text('failed to load your selection')
@@ -37,11 +42,11 @@ const indexListFailure = function () {
   $('#status-message').text('failed to load your list')
 }
 
-const onUpdateList = function (event) {
-  // console.log('is anything happening')
+const onSubmitUpdateListItem = function (event) {
   event.preventDefault()
-  // console.log('update list')
   const data = getFormFields(this)
+  id = data.list_item.id
+  console.log('onSubmiteUpdateListItem', id, data)
   api.updateListItem(id, data)
     .then(updateListSuccess)
     .catch(updateListFailure)
@@ -50,7 +55,7 @@ const onUpdateList = function (event) {
 const updateListSuccess = function (data) {
   console.log('are we making progress?')
   // debugger
-  $('#editItemModal').modal('hide')
+  $('#editItemModal').modal('toggle')
   api.getList()
     .then(indexListSuccess)
     .catch(indexListFailure)
@@ -88,7 +93,7 @@ const onGetListAfterDeleteSuccess = function (data) {
   const showListItemsHTML = handlebars({list_items: data.list_items})
   $('#bucket-list-handlebars').html(showListItemsHTML)
   // $('.edit-row').on('submit')
-  $('.edit-row').on('click', onEditModal)
+  $('.edit-row').on('click', onLaunchEditModal)
   $('.delete-item').on('click', onDeleteClickButton)
 }
 
@@ -105,12 +110,12 @@ const deleteItemFailure = function () {
   $('#status-message').text('Oops, can you try deleting that from your bucket again?')
 }
 module.exports = {
-  onEditModal,
+  onLaunchEditModal,
   listShowSuccess,
   listShowFailure,
   updateListSuccess,
   updateListFailure,
-  onUpdateList,
+  onSubmitUpdateListItem,
   onDeleteListItem,
   deleteItemSuccess,
   deleteItemFailure,

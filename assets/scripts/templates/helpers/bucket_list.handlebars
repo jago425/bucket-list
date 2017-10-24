@@ -3,11 +3,13 @@
 
 
 <tr data-id="{{list_item.id}}">
-    <td class="col-sm-2"> Done:{{list_item.done}}</td>
-    <td class="col-sm-8">Bucket Item: {{list_item.item_description}}</td>
-    <td class="col-xs-3"><button type="button" data-toggle="modal" data-target="#edit-modal" id="{{list_item.id}}" class="btn btn-primary edit-row">Edit</button>
+    <td class="col-sm-2">{{list_item.done}}</td>
+    <td class="col-sm-8">{{list_item.item_description}}</td>
+    <td class="col-xs-3">
+      <button type="button" data-toggle="modal" data-target="#editItemModal" data-id="{{list_item.id}}" class="btn btn-primary edit-button">Edit</button>
     </td>
-      <td class="col-xs-3"><button type="button" class="delete-item ibtnDel btn btn-md btn-danger" id="{{list_item.id}}">Delete</button>
+      <td class="col-xs-3">
+        <button type="button" class="delete-item ibtnDel btn btn-md btn-danger" data-id="{{list_item.id}}">Delete</button>
       </td>
       <!-- <td class="col-xs-3"><a class="deleteRow"></a>
         <input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete">
