@@ -15,6 +15,11 @@ body {
   background-size: cover;
 }
 
+.auth-form {
+  text-align: left;
+  margin-left: 775px;
+}
+
 .description {
   margin: auto;
 }
