@@ -76,6 +76,13 @@ const onGetListAfterDeleteSuccess = function (data) {
   // $('.edit-row').on('submit')
   $('.edit-row').on('click', onLaunchEditModal)
   $('.delete-item').on('click', onDeleteClickButton)
+  clearStatus()
+}
+// function to wait 1 second before clearing the status message
+const clearStatus = function () {
+  setTimeout(function () {
+    $('#status-message').text('')
+  }, 2500)
 }
 
 const onGetListAfterDeleteFailure = function () {

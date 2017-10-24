@@ -15,12 +15,23 @@
 </head>
 
 <body class="container-fluid">
+  <!-- nav bar -->
+  <!--navbar-inverse -->
+  <nav data-user class="navbar nav-bar hidden">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a class="nav-link" href="#change-password-modal" data-toggle="modal"><span class="glyphicon glyphicon-lock"></span> Change Password</a></li>
+      <li><a class="nav-link" id='sign-out' href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      <br>
+    </ul>
+  </div>
+</nav>
   <!-- header -->
   <header>
     <h1>Bucket List</h1>
   </header>
+
   <br>
-  <!--placeholder for nav bar -->
   <!-- Status Message -->
   <div id='status-message' class='status'></div>
   <br>
@@ -30,7 +41,7 @@
       <legend>Please login!</legend>
       <input required type="text" id="login-email" name="credentials[email]" class="nppi" placeholder="username">
       <input required type="password" id="login-password" name="credentials[password]" class="nppi" placeholder="Password">
-      <input type="submit" name="submit" class="btn btn-primary" value="Login">
+      <input type="submit" name="submit" class="btn primary-button" value="Login">
     </fieldset>
   </form>
   <!--- Sign Up -->
@@ -40,7 +51,7 @@
       <input required type="text" id="sign-up-email" name="credentials[email]" class="nppi" placeholder="username">
       <input required type="password" id="sign-up-password" name="credentials[password]" class="nppi" placeholder="Password">
       <input required type="password" id="confirm-password" name="credentials[password_confirmation]" class="nppi" placeholder="Confirm Password">
-      <input type="submit" name="submit" class="btn btn-primary" value="Sign up!">
+      <input type="submit" name="submit" class="btn primary-button" value="Sign up!">
     </fieldset>
   </form>
 
@@ -64,7 +75,7 @@
         <tfoot>
           <tr>
             <td colspan="5" style="text-align: left;">
-              <input type="submit" class="btn btn-lg btn-block" id="addrow" value="Drop in the Bucket!" />
+              <input type="submit" class="btn btn-lg btn-block add-item-button" id="addrow" value="Drop in the Bucket!" />
             </td>
           </tr>
           <tr>
@@ -81,24 +92,6 @@
     </table>
   </div>
   <br>
-  <!-- Logout -->
-  <section class="logout">
-    <form id='sign-out' class='logout'>
-      <input type="submit" name="submit" class="btn btn-primary" value="Logout">
-    </form>
-  </section>
-  <br>
-  <!-- change password -->
-  <section>
-    <form id='change-password'>
-      <fieldset>
-        <legend>Change Password</legend>
-        <input required type="password" id="change-password-old" name="passwords[old]" class="nppi" placeholder="Old Password">
-        <input required type="password" id="change-password-new" name="passwords[new]" class="nppi" placeholder="New Password">
-        <input type="submit" name="submit" class="btn btn-primary" value="Change Password">
-      </fieldset>
-    </form>
-  </section>
   <!-- edit modal -->
   <div class="modal fade" id="editItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -111,15 +104,33 @@
           <form id="edit-modal">
             <div class="modal-message"></div>
             <input type="hidden" id="item-id-from-edit-modal" name="list_item[id]" value=" ">
-            <input required id="modal-item-description" name="list_item[item_description]" type="text" placeholder="description">
+            <input required id="modal-item-description" name="list_item[item_description]" type="text" placeholder="description"class="edit-modal-text-field">
 
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <input type="submit" value="Save Changes" id="edit-modal-save" class="btn-primary">
+            <input type="submit" value="Save Changes" id="edit-modal-save" class="btn primary-button">
             </div>
           </form>
         </div>
 
+      </div>
+    </div>
+  </div>
+  <div id="change-password-modal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+        </div>
+        <div class="modal-body">
+          <form id='change-password'>
+            <div class="chg-pw-modal-message"></div>
+            <input required type="password" id="change-password-old" name="passwords[old]" class="nppi" placeholder="Old Password">
+            <input required type="password" id="change-password-new" name="passwords[new]" class="nppi" placeholder="New Password">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <input type="submit" name="submit" class="btn primary-button" value="Change Password">
+          </form>
+        </div>
       </div>
     </div>
   </div>

@@ -23,6 +23,7 @@ const signInSuccess = function (response, event) {
   $('.nppi').val('')
   $('#status-message').text('')
   $('#list-form').show()
+  $('[data-user]').removeClass('hidden')
   api.getList()
     .then(onGetListSuccess)
     .catch(onGetListFailure)
@@ -46,20 +47,22 @@ const signInFailure = function () {
 const changePasswordSuccess = function () {
   $('#status-message').text('Changed password successfully')
   $('.nppi').val('')
+  $('#change-password-modal').modal('hide')
 }
 
 const changePasswordFailure = function () {
-  $('#status-message').text('Password Change Failed. Please try again.')
+  $('.chg-pw-modal-message').text("That didn't work, please try again")
 }
 
 const signOutSuccess = function () {
-  // $('#status-message').text('Signed out successfully')
+  $('#status-message').text('Signed out successfully')
   store.user = null
   $('#change-password').hide()
   $('#sign-out').hide()
   $('#sign-in').show()
   $('#sign-up').show()
   $('#list-form').hide()
+  $('[data-user]').addClass('hidden')
   $('#bucket-list-handlebars').empty()
 }
 

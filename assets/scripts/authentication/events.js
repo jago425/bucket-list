@@ -43,7 +43,11 @@ const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
-  $('#sign-out').on('submit', onSignOut)
+  $('#sign-out').on('click', onSignOut)
+  $('#change-password-modal').on('hidden.bs.modal', function () {
+    $('.chg-pw-modal-message').text('')
+    $('.nppi').val('')
+  })
 }
 
 module.exports = {

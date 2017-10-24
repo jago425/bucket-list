@@ -6,17 +6,57 @@ $margin: 30px;*/
 
 
 body {
-  background-image: url(https://i.imgur.com/4fZ4erC.jpg?1);
-  background-repeat: no-repeat;
-  background-size: 100% 230%;
+
   text-align: center;
+  background: url(https://i.imgur.com/4fZ4erC.jpg?1) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .saved-description {
-  background-color: #545656;
+  background-color: rgba(143, 129, 114, .70);
   font-family: 'Shadows Into Light', cursive;
   font-size: 20px;
   font-weight: bold;
   text-align:left;
   align-content: center;
+}
+
+.add-item-button {
+  background-color: #CCB8D1;
+}
+
+.primary-button {
+margin: 5px;
+background-color: #B2E3E8;
+}
+
+.delete-button {
+background-color: #452B29;
+color: #ffffff;
+}
+
+.nav-bar {
+  background-color: #8F8172;
+}
+
+.glyphicon, .nav-link {
+    color: #E6E2DF
+}
+
+td {
+  border: 3px solid rgba(143, 129, 114, 0);
+}
+
+.edit-modal-text-field {
+width: 575px;
+height: 45px;
+}
+.modal-body {
+  background-color: #E6E2DF;
+}
+.modal-header {
+background-color: #8F8172
 }

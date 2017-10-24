@@ -33,8 +33,6 @@ const listHandlers = function () {
   $(document).on('submit', '#edit-modal', bucketListUi.onSubmitUpdateListItem)
   // click handler to wait for delete button to exist, then click handler is added to it
   $(document).on('click', '.delete-item', bucketListUi.onDeleteClickButton)
-  // $('#edit-modal-save').on('submit', onSubmitUpdateListItem)
-  // $('.delete-item').on('submit', onDeleteListItem)
 }
 
 module.exports = {
