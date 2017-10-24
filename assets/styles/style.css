@@ -15,6 +15,10 @@ body {
   background-size: cover;
 }
 
+.description {
+  margin: auto;
+}
+
 .saved-description {
   background-color: rgba(143, 129, 114, .70);
   font-family: 'Shadows Into Light', cursive;
