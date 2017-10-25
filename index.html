@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+  <title>Bucket List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+  <!-- nav bar -->
+  <!--navbar-inverse -->
+  <nav data-user class="navbar nav-bar hidden">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a class="nav-link" href="#change-password-modal" data-toggle="modal"><span class="glyphicon glyphicon-lock"></span> Change Password</a></li>
+      <li><a class="nav-link" id='sign-out' href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      <br>
+    </ul>
+  </div>
+</nav>
+  <!-- header -->
+  <header>
+    <h1 id="heading">Bucket List</h1>
+  </header>
+
+  <br>
+  <!-- Status Message -->
+  <div id='status-message' class='status'></div>
+  <br>
+  <!--- Login -->
+  <form id='sign-in' class='auth-form'>
+    <fieldset>
+      <legend>Welcome back! Please login!</legend>
+      <input required type="text" id="login-email" name="credentials[email]" class="nppi text-box" placeholder="username">
+      <input required type="password" id="login-password" name="credentials[password]" class="nppi text-box" placeholder="Password">
+      <input type="submit" name="submit" class="btn primary-button" value="Login">
+    </fieldset>
+  </form>
+  <br>
+  <br>
+  <!--- Sign Up -->
+  <form id='sign-up' class='auth-form'>
+    <fieldset>
+      <legend>First time here? You should totally sign up!</legend>
+      <input required type="text" id="sign-up-email" name="credentials[email]" class="nppi text-box" placeholder="username">
+      <input required type="password" id="sign-up-password" name="credentials[password]" class="nppi text-box" placeholder="Password">
+      <input required type="password" id="confirm-password" name="credentials[password_confirmation]" class="nppi text-box" placeholder="Confirm Password">
+      <input type="submit" name="submit" class="btn primary-button" value="Sign up!">
+    </fieldset>
+  </form>
+
+  <!-- List -->
+  <form class="list" id="list-form">
+    <div class="container">
+      <table id="bucketList" class="table order-list">
+        <thead>
+          <tr>
+            <td id="bucket-header">Fill your bucket and start fulfilling your life!</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-md-12 description">
+              <input required type="text" id="item_description" name="list_item[item_description]" class="form-control" placeholder="type your list item here"/>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td class="col-md-12" style="text-align: left;">
+              <input type="submit" class="btn btn-lg btn-block add-item-button" id="addrow" value="Drop in the Bucket!" />
+            </td>
+          </tr>
+          <tr>
+          </tr>
+        </tfoot>
+        <!--empty table for handlebars  -->
+      </table>
+    </div>
+  </form>
+
+
+  <div class="container">
+    <table id="bucket-list-handlebars" class="table order-list">
+    </table>
+  </div>
+  <br>
+  <!-- edit modal -->
+  <div class="modal fade" id="editItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Edit Bucket Item</h5>
+
+        </div>
+        <div class="modal-body">
+          <form id="edit-modal">
+            <div class="modal-message"></div>
+            <input type="hidden" id="item-id-from-edit-modal" name="list_item[id]" value=" ">
+            <input required id="modal-item-description" name="list_item[item_description]" type="text" placeholder="description" class="edit-modal-text-field text-box">
+
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <input type="submit" value="Save Changes" id="edit-modal-save" class="btn primary-button">
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div id="change-password-modal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+        </div>
+        <div class="modal-body">
+          <form id='change-password'>
+            <div class="chg-pw-modal-message"></div>
+            <input required type="password" id="change-password-old" name="passwords[old]" class="nppi text-box" placeholder="Old Password">
+            <input required type="password" id="change-password-new" name="passwords[new]" class="nppi text-box" placeholder="New Password">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <input type="submit" name="submit" class="btn primary-button" value="Change Password">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- </form> -->
+</body>
+
+</html>
