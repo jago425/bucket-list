@@ -8,9 +8,9 @@ To use the app, you'll need to sign up to create an account and then sign in to 
 You can also edit and delete items you've added.
 
 ## Links
-Bucket List Application: https://jago425.github.io/bucket-list-client/
-Bucket List API Repo: https://github.com/jago425/jagos-bucket-list-api
-Deployed API: https://fathomless-lake-16939.herokuapp.com/
+* Bucket List Application: https://jago425.github.io/bucket-list-client/
+* Bucket List API Repo: https://github.com/jago425/jagos-bucket-list-api
+* Deployed API: https://fathomless-lake-16939.herokuapp.com/
 
 ## Technologies Used
 * HTML
