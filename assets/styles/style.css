@@ -4,9 +4,13 @@ $align-content: center;
 $height: 80px;
 $margin: 30px;*/
 
+#heading {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 100px;
+  font-weight: bold;
+}
 
 body {
-
   text-align: center;
   background: url(https://i.imgur.com/4fZ4erC.jpg?1) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -17,7 +21,26 @@ body {
 
 .auth-form {
   text-align: left;
-  margin-left: 775px;
+  margin-left: 85%;
+}
+
+legend {
+  font-family: 'Caveat', cursive;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+#status-message {
+  font-family: 'Caveat', cursive;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+#bucket-header {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 45px;
+  font-weight: bold;
+  text-shadow: 2px 2px #b1ecef;
 }
 
 .description {
@@ -26,15 +49,15 @@ body {
 
 .saved-description {
   background-color: rgba(143, 129, 114, .70);
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 20px;
+  font-family: 'Caveat', cursive;
+  font-size: 27px;
   font-weight: bold;
   text-align:left;
   align-content: center;
 }
 
 .add-item-button {
-  background-color: #CCB8D1;
+  background-color: rgba(204, 184, 209, .90);
 }
 
 .primary-button {
@@ -68,4 +91,10 @@ height: 45px;
 }
 .modal-header {
 background-color: #8F8172
+}
+.text-box {
+  background-color: rgba(224, 229, 229, .70);
+}
+#item_description {
+  background-color: rgba(224, 229, 229, .90);
 }

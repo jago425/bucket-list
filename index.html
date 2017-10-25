@@ -3,6 +3,7 @@
 
 <head>
   <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
   <title>Bucket List</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,7 +29,7 @@
 </nav>
   <!-- header -->
   <header>
-    <h1>Bucket List</h1>
+    <h1 id="heading">Bucket List</h1>
   </header>
 
   <br>
@@ -38,19 +39,21 @@
   <!--- Login -->
   <form id='sign-in' class='auth-form'>
     <fieldset>
-      <legend>Please login!</legend>
-      <input required type="text" id="login-email" name="credentials[email]" class="nppi" placeholder="username">
-      <input required type="password" id="login-password" name="credentials[password]" class="nppi" placeholder="Password">
+      <legend>Welcome back! Please login!</legend>
+      <input required type="text" id="login-email" name="credentials[email]" class="nppi text-box" placeholder="username">
+      <input required type="password" id="login-password" name="credentials[password]" class="nppi text-box" placeholder="Password">
       <input type="submit" name="submit" class="btn primary-button" value="Login">
     </fieldset>
   </form>
+  <br>
+  <br>
   <!--- Sign Up -->
   <form id='sign-up' class='auth-form'>
     <fieldset>
-      <legend>First Time? Sign Up Here!</legend>
-      <input required type="text" id="sign-up-email" name="credentials[email]" class="nppi" placeholder="username">
-      <input required type="password" id="sign-up-password" name="credentials[password]" class="nppi" placeholder="Password">
-      <input required type="password" id="confirm-password" name="credentials[password_confirmation]" class="nppi" placeholder="Confirm Password">
+      <legend>First time here? You should totally sign up!</legend>
+      <input required type="text" id="sign-up-email" name="credentials[email]" class="nppi text-box" placeholder="username">
+      <input required type="password" id="sign-up-password" name="credentials[password]" class="nppi text-box" placeholder="Password">
+      <input required type="password" id="confirm-password" name="credentials[password_confirmation]" class="nppi text-box" placeholder="Confirm Password">
       <input type="submit" name="submit" class="btn primary-button" value="Sign up!">
     </fieldset>
   </form>
@@ -61,14 +64,14 @@
       <table id="bucketList" class="table order-list">
         <thead>
           <tr>
-            <td>Bucket Item</td>
+            <td id="bucket-header">Fill your bucket and start fulfilling your life!</td>
             <td></td>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td class="col-md-12 description">
-              <input required type="text" id="item_description" name="list_item[item_description]" class="form-control" />
+              <input required type="text" id="item_description" name="list_item[item_description]" class="form-control" placeholder="type your list item here"/>
             </td>
           </tr>
         </tbody>
@@ -104,7 +107,7 @@
           <form id="edit-modal">
             <div class="modal-message"></div>
             <input type="hidden" id="item-id-from-edit-modal" name="list_item[id]" value=" ">
-            <input required id="modal-item-description" name="list_item[item_description]" type="text" placeholder="description"class="edit-modal-text-field">
+            <input required id="modal-item-description" name="list_item[item_description]" type="text" placeholder="description" class="edit-modal-text-field text-box">
 
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -125,8 +128,8 @@
         <div class="modal-body">
           <form id='change-password'>
             <div class="chg-pw-modal-message"></div>
-            <input required type="password" id="change-password-old" name="passwords[old]" class="nppi" placeholder="Old Password">
-            <input required type="password" id="change-password-new" name="passwords[new]" class="nppi" placeholder="New Password">
+            <input required type="password" id="change-password-old" name="passwords[old]" class="nppi text-box" placeholder="Old Password">
+            <input required type="password" id="change-password-new" name="passwords[new]" class="nppi text-box" placeholder="New Password">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             <input type="submit" name="submit" class="btn primary-button" value="Change Password">
           </form>

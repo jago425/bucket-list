@@ -33,6 +33,7 @@ const onGetListSuccess = function (data) {
   $('#bucket-list-handlebars').empty()
   const showListItemsHTML = handlebars({list_items: data.list_items})
   $('#bucket-list-handlebars').html(showListItemsHTML)
+  $('#status-message').text('')
 }
 
 const onGetListFailure = function () {
